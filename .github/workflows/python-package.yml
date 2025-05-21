@@ -1,0 +1,40 @@
+#此工作流将安装Python依赖项、运行测试并使用各种Python版本
+#有关详细信息，请参阅： https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+姓名: 名称：python包
+
+在……之上:
+推:
+分支机构: [分支机构：["主"]"主" ]
+pull_request:
+分支机构: [分支机构：["主"]"主" ]
+
+工作:
+建立:
+
+连续的: 连续的:Ubuntu-最新
+策略:
+快速失效: 假的
+矩阵:
+python版: ["3.9",python版本：["3.9"，"3.10"，"3.11"]"3.10", "3.11"]
+
+步骤:
+    - uses: -使用：操作/结帐@v4
+    - 姓名: -名称：设置python${{matrix.python版本}}{{matrix.python版本}}
+uses: 用法：操作/setup-python@v3
+和……一起:
+python版: python版本：${{matrix.python版本}}{{matrix.python版本}}
+    - 姓名: -名称：安装依赖项
+跑: |
+Python-m pip安装--升级pip
+Python-m pip安装flake8pytest
+如果[-f requirement.txt]；则pip安装-r requirement.txt；fi
+    - 姓名: 带鳞片的棉绒8
+跑: |
+#如果存在python语法错误或未定义的名称，则停止生成
+flake8--计数--选择=E9，F63，F7，F82--显示源--统计
+#exit-zero将所有错误视为警告。GitHub编辑器的宽度为127个字符
+flake8. --计数--退出--零--最大复杂性=10--最大行长度=127--统计
+    - 姓名: 用pytest测试
+跑: |
+pytest
