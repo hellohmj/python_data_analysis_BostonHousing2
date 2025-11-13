@@ -17,7 +17,7 @@ The dataset includes **506 observations** and **14 variables**, where **`medv`**
 | `rad`         | Index of accessibility to radial highways. |
 | `tax`         | Full-value property tax rate per $10,000. |
 | `ptratio`     | Pupil-teacher ratio by town. |
-| `b`           | $( 1000(B - 0.63)^2 $), where \( B \) is the proportion of Black population by town. |
+| `b`           | $$1000(B - 0.63)^2$$, where \( B \) is the proportion of Black population by town. |
 | `lstat`       | Percentage of lower status of the population. |
 
 ---
